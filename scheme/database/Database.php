@@ -278,8 +278,13 @@ class Database {
                     throw new PDOException("MySQL SSL CA certificate was not found: {$ssl_ca}");
                 }
 
-                $options[PDO::MYSQL_ATTR_SSL_CA] = $ssl_ca;
-                $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = true;
+                if (class_exists('Pdo\\Mysql')) {
+                    $options[\Pdo\Mysql::ATTR_SSL_CA] = $ssl_ca;
+                    $options[\Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT] = true;
+                } else {
+                    $options[PDO::MYSQL_ATTR_SSL_CA] = $ssl_ca;
+                    $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = true;
+                }
             }
 
             $this->db = new PDO($dsn, $username, $password, $options);
