@@ -92,7 +92,7 @@ $database['aiven'] = array(
     'database'  => getenv('AIVEN_DB_NAME') ?: '',
     'charset'   => 'utf8mb4',
     'dbprefix'  => '',
-    'ssl_ca'    => getenv('AIVEN_DB_SSL_CA') ?: (ROOT_DIR . 'certs/aiven-ca.pem'),
+    'ssl_ca'    => getenv('AIVEN_DB_SSL_CA') ?: '',
     'path'      => ''
 );
 
