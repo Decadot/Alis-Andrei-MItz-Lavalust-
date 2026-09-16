@@ -4,6 +4,7 @@
 # Environment
 .env
 !.env.example
+certs/*.pem
 
 # Dependencies
 vendor/

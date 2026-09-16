@@ -242,6 +242,10 @@ class Database {
             ? $database_config['path']
             : null;
 
+        $ssl_ca = isset($database_config['ssl_ca']) && !empty($database_config['ssl_ca'])
+            ? $database_config['ssl_ca']
+            : null;
+
         switch ($driver) {
             case 'mysql':
                 $dsn = "mysql:host=$host;dbname=$dbname_value;charset=$charset;port=$port";
@@ -269,6 +273,15 @@ class Database {
         );
 
         try {
+            if ($driver === 'mysql' && $ssl_ca !== null) {
+                if (!is_file($ssl_ca)) {
+                    throw new PDOException("MySQL SSL CA certificate was not found: {$ssl_ca}");
+                }
+
+                $options[PDO::MYSQL_ATTR_SSL_CA] = $ssl_ca;
+                $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = true;
+            }
+
             $this->db = new PDO($dsn, $username, $password, $options);
             $this->driver = $this->db->getAttribute(PDO::ATTR_DRIVER_NAME);
         } catch (Exception $e) {

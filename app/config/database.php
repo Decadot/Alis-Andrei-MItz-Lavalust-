@@ -70,4 +70,30 @@ $database['main'] = array(
     'path'      => ''
 );
 
+$database['user_crud'] = array(
+    'driver'    => getenv('USER_CRUD_DB_DRIVER') ?: 'mysql',
+    'hostname'  => getenv('USER_CRUD_DB_HOST') ?: 'localhost',
+    'port'      => getenv('USER_CRUD_DB_PORT') ?: '3306',
+    'username'  => getenv('USER_CRUD_DB_USERNAME') ?: 'root',
+    'password'  => getenv('USER_CRUD_DB_PASSWORD') ?: '',
+    'database'  => getenv('USER_CRUD_DB_NAME') ?: 'user_crud',
+    'charset'   => 'utf8mb4',
+    'dbprefix'  => '',
+    'path'      => ''
+);
+
+// Aiven MySQL connection used by the Product CRUD application.
+$database['aiven'] = array(
+    'driver'    => 'mysql',
+    'hostname'  => getenv('AIVEN_DB_HOST') ?: '',
+    'port'      => getenv('AIVEN_DB_PORT') ?: '3306',
+    'username'  => getenv('AIVEN_DB_USERNAME') ?: '',
+    'password'  => getenv('AIVEN_DB_PASSWORD') ?: '',
+    'database'  => getenv('AIVEN_DB_NAME') ?: '',
+    'charset'   => 'utf8mb4',
+    'dbprefix'  => '',
+    'ssl_ca'    => getenv('AIVEN_DB_SSL_CA') ?: (ROOT_DIR . 'certs/aiven-ca.pem'),
+    'path'      => ''
+);
+
 ?>

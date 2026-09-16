@@ -44,5 +44,26 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 /** @var object $router **/
 
-$router->get('/', 'Welcome::index');
+$router->get('/', 'ProductController::index');
+$router->get('/products', 'ProductController::index');
+$router->get('/products/create', 'ProductController::create');
+$router->post('/products/store', 'ProductController::store');
+$router->get('/products/edit/{id}', 'ProductController::edit');
+$router->post('/products/update/{id}', 'ProductController::update');
+$router->post('/products/delete/{id}', 'ProductController::delete');
 $router->get('/users', 'UsersController::index');
+$router->post('/users/store', 'UsersController::store');
+$router->get('/users/edit/(:num)', 'UsersController::edit');
+$router->post('/users/update/(:num)', 'UsersController::update');
+$router->get('/users/delete/(:num)', 'UsersController::delete');
+$router->get('/signup', 'AuthController::signup');
+$router->post('/signup', 'AuthController::signupPost');
+$router->get('/login', 'AuthController::login');
+$router->post('/login', 'AuthController::loginPost');
+$router->get('/logout', 'AuthController::logout');
+$router->get('/dashboard', 'AuthController::dashboard');
+$router->get('/members', 'MembersController::index');
+$router->post('/members/store', 'MembersController::store');
+$router->get('/members/edit/(:num)', 'MembersController::edit');
+$router->post('/members/update/(:num)', 'MembersController::update');
+$router->get('/members/delete/(:num)', 'MembersController::delete');
