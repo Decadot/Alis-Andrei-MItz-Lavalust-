@@ -32,7 +32,7 @@
         <h1>Good to see you, <?= htmlspecialchars($username) ?>.</h1>
         <p class="lead">Your inventory workspace is ready. Keep product details current and make every stock decision with confidence.</p>
         <a class="action" href="<?= site_url('products') ?>">Open product management <span class="arrow">&#8594;</span></a>
-        <div class="strip"><div class="stat"><strong>Products</strong><span>One focused catalog</span></div><div class="stat"><strong>Live data</strong><span>Connected to Aiven MySQL</span></div><div class="stat"><strong>CRUD ready</strong><span>Create, edit, remove</span></div></div>
+        <div class="strip"><div class="stat"><strong>Products</strong><span>your choice what to add!</span></div><div class="stat"><strong>Live data</strong><span>Connected to Aiven MySQL after a whole week</span></div><div class="stat"><strong>The crud is ready</strong><span>Create, edit, remove, what ever you want that can be done here!</span></div></div>
     </main>
 </body>
 </html>
