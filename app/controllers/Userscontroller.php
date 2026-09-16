@@ -8,7 +8,7 @@ class UsersController extends Controller
             return;
         }
 
-        $usersModel = $this->call->model('UsersModel');
+        $usersModel = $this->call->model('Usersmodel');
 
         $this->renderIndex($usersModel);
     }
@@ -23,7 +23,7 @@ class UsersController extends Controller
         $username = trim($_POST['username'] ?? '');
         $password = $_POST['password'] ?? '';
         $confirmPassword = $_POST['confirm_password'] ?? '';
-        $usersModel = $this->call->model('UsersModel');
+        $usersModel = $this->call->model('Usersmodel');
 
         if ($name === '' || $username === '' || $password === '' || $confirmPassword === '') {
             $this->renderIndex($usersModel, 'All fields are required.', compact('name', 'username'));
@@ -52,7 +52,7 @@ class UsersController extends Controller
             return;
         }
 
-        $usersModel = $this->call->model('UsersModel');
+        $usersModel = $this->call->model('Usersmodel');
         $user = $usersModel->find($id);
         if (!$user) {
             redirect('/users');
@@ -71,7 +71,7 @@ class UsersController extends Controller
         $username = trim($_POST['username'] ?? '');
         $password = $_POST['password'] ?? '';
         $confirmPassword = $_POST['confirm_password'] ?? '';
-        $usersModel = $this->call->model('UsersModel');
+        $usersModel = $this->call->model('Usersmodel');
         $user = $usersModel->find($id);
         if (!$user) {
             redirect('/users');
@@ -105,7 +105,7 @@ class UsersController extends Controller
             return;
         }
 
-        $this->call->model('UsersModel')->delete($id);
+        $this->call->model('Usersmodel')->delete($id);
         redirect('/users');
     }
 

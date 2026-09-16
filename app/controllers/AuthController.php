@@ -29,7 +29,7 @@ class AuthController extends Controller
             return;
         }
 
-        $userModel = $this->call->model('UsersModel');
+        $userModel = $this->call->model('Usersmodel');
 
         $existingUser = $userModel->find_by('username', $username);
         if ($existingUser) {
@@ -61,7 +61,7 @@ class AuthController extends Controller
             return;
         }
 
-        $userModel = $this->call->model('UsersModel');
+        $userModel = $this->call->model('Usersmodel');
         $user = $userModel->find_by('username', $username);
 
         if (!$user || !password_verify($password, $user['password'])) {
